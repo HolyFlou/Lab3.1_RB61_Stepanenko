@@ -54,7 +54,7 @@ int main()
             printf("Введіть крок зміни аргументу: ");
             scanf("%lf", &delta);
 
-            //second_var(x1, x2, delta);
+            second_var(x1, x2, delta);
             break;
     }
     
@@ -89,4 +89,28 @@ char* first_var(double x1, double x2, unsigned int N)
 
     strcat(result, "\n+----------+----------+----------+\n");
     return result;
+}
+
+
+void second_var(double x1, double x2, double delta)
+{
+    unsigned int N = (unsigned int)((x2 - x1) / delta + 1);
+
+    char result[4000] = "*********************************\n*      N   *     X   *   F(X)   *\n*********************************";
+
+    for (unsigned int i = 1; i <= N; i++)
+    {
+        char temp[100];
+
+        double func = (x1 * x1 * x1) / 20 - 5 * (x1 * x1) + 1000;
+
+        strcat(result, "\n+----------+----------+----------+");
+        sprintf(temp, "\n|%10u|%10.2lf|%10.2lf|", i, x1, func);
+        strcat(result, temp);
+
+        x1 += delta;
+    }
+
+    strcat(result, "\n+----------+----------+----------+\n");
+    printf("%s", result);
 }
