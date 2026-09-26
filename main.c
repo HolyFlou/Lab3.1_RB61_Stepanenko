@@ -4,21 +4,24 @@
 #include <math.h>
 #include <windows.h>
 
+// Прототип функції для першого варіанту
 char* first_var(double x1, double x2, unsigned int N);
 
+// Прототип функції для другого варіанту
 void second_var(double x1, double x2, double delta);
 
 int main()
 {
     SetConsoleOutputCP(CP_UTF8);
-
+    // Оголошення змінних
     double x1, x2, delta;
     unsigned int N, var;
 
+    // Цикл для перевірки коректності введеного варіанту
     do
     {
         printf("\nОбрати варіант роботи програми:\n");
-        printf("\t1. Перший варінт\n");
+        printf("\t1. Перший варіант\n");
         printf("\t2. Другий варіант\n");
 
         scanf("%u", &var);
@@ -29,6 +32,7 @@ int main()
         }
     } while (var != 1 && var != 2);
 
+    // Створюємо оператор розгалуження для обробки 1 та 2 варіанту
     switch (var)
     {
         case 1:
@@ -61,6 +65,7 @@ int main()
     return 0;
 }
 
+// Опис функції для першого варіанту
 char* first_var(double x1, double x2, unsigned int N)
 {
     if (N < 2)
@@ -91,7 +96,7 @@ char* first_var(double x1, double x2, unsigned int N)
     return result;
 }
 
-
+// Опис функції для другого варіанту
 void second_var(double x1, double x2, double delta)
 {
     unsigned int N = (unsigned int)((x2 - x1) / delta + 1);
